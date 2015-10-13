@@ -37,3 +37,12 @@ describe "the edit lesson path" do
     expect(page).to have_content "errors"
   end
 end
+
+describe "the destroy lesson path" do
+  it "deletes a lesson" do
+    lesson = Lesson.create(name: "CSS", content: "CSS stuff", number: 9)
+    visit lesson_path(lesson)
+    click_on "Delete"
+    expect(page).to have_content "Lessons"
+  end
+end
