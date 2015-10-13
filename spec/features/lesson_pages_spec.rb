@@ -27,4 +27,13 @@ describe "the edit lesson path" do
     click_on "Update Lesson"
     expect(page).to have_content "Lessons"
   end
+
+  it "gives error when a field is empty" do
+    lesson = Lesson.create(name: "CSS", content: "CSS stuff", number: 9)
+    visit lesson_path(lesson)
+    click_on "Edit"
+    fill_in "Number", :with => ''
+    click_on "Update Lesson"
+    expect(page).to have_content "errors"
+  end
 end
