@@ -13,6 +13,7 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new(lesson_params)
+    @lesson.number = Lesson.all.length
     if @lesson.save
       redirect_to lessons_path
     else
