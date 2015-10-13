@@ -2,6 +2,6 @@
 <p><%= @lesson.content %></p>
 
 <p><%= link_to "Edit", edit_lesson_path(@lesson) %></p>
-<p><%= link_to "Delete", lesson_path(@lesson) %></p>
+<p><%= link_to "Delete", lesson_path(@lesson), :data => {:confirm => "You sure?", :method => "delete"} %></p>
 
 <p><%= link_to "Return to lessons", lessons_path %></p>
